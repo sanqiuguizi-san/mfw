@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>账号注册</title>
+		<style type="text/css">
+		*,*:focus{outline: 0 none;}
+		body,p,div {margin: 0;padding: 0;word-break: break-all;word-wrap: break-word;}
+		body{font-size: 12px;}
+		div{display: block;}
+		a{color: #FF9D00;text-decoration: none;}
+		button{padding: 1px 6px;}
+		body{margin: 0;padding: 0;word-break: break-all;word-wrap: break-word;font-size: 12px;width: 100%;height: 100%;overflow-y: auto;overflow-x: hidden;display: block;}
+		.wrapper{width: 980px;position: absolute;top: 50%;left: 50%;margin: -245px 0 0 -490px;z-index: 2;color: #666666;}
+		.container-login{width: 600px;margin: -30px auto 0;}
+		.logo {width: 75px;height: 90px;display: block;text-indent: -999px;overflow: hidden;background: url(pic/logo-new.png) no-repeat;margin: 0 auto;}
+		
+		.signup-forms {position: relative;}
+		.login-box {position: absolute;z-index: 10;top: 0;left: 0;}
+		.signup-forms .inner_v2{width: 600px;overflow: hidden;}
+		.signup-forms .inner {padding-top: 26px;background-color: #FFFFFF;border-radius: 5px;box-shadow: 0 3px 3px rgba(0,0,0,.4);}
+		.signup-forms .inner_v2 .inner_v2_left {float: left;width: 370px;}
+		form {display: block;margin-top: 0em;}
+		input {width: 306px;height: 28px;border: 1px solid #d8d8d8;border-radius: 4px;font-size: 14px;color: #666666;padding: 6px 0 6px 12px;box-shadow: 0 0 5px #FFFFFF;outline: 0;-webkit-transition:box-shadow .25s linear 0s;}
+		input:focus{border: 1px solid #FF9D00;box-shadow: 0 0 5px #FF9D00;outline: 0;}
+		.signup-forms .form-link {clear: both;width: 320px;margin: 0 auto;padding: 8px 0 0;text-align: right;}
+		.signup-forms .form-field {clear: both;width: 320px;margin: 0 auto;padding-top: 10px;}
+		/*马蜂窝协议*/
+		.agreement {width: 320px;margin: 0 auto;padding-top: 12px;font-size: 12px;color: #ccc;text-align: right;line-height: 1em;}
+		.agreement a {color: #999999;font-size: 12px;margin-left: 2px;}
+		.agreement a:hover{color: #333333;text-decoration: underline;}
+		
+		.signup-forms .submit-btn {width: 320px;margin: 0 auto;padding: 12px 0 0;}
+		.signup-forms .submit-btn button{width: 320px;height: 42px;border: 0;background-color: #FF9D00;border-radius: 5px;text-align: center;line-height: 40px;color: #FFFFFF;font-size: 18px;font-weight: bold;cursor: pointer;}
+		
+		.signup-forms .connect{clear: both;overflow: hidden;margin-top: 30px;}
+		.signup-forms .connect .hd {padding: 15px 0 20px 24px;font-size: 12px;color: #999;border-top: 1px solid #ebebeb;}
+		.signup-forms .connect .bd {padding: 0 0 0 25px;width: 348px;height: 84px;overflow: hidden;}
+		
+		.signup-forms .connect a {width: 58px;height: 84px;text-align: center;font-size: 12px;color: #999999;display: inline-block;margin-right: 25px;}
+		.signup-forms .connect a i{width: 42px;height: 42px;background: url(pic/c_icon3.gif) no-repeat;display: block;margin: 0 0 4px 10px;cursor: pointer;}
+		.signup-forms .connect a.weibo i{background-position: 0 0;}
+		.signup-forms .connect a.qq i{background-position: -42px 0;}
+		.signup-forms .connect a.weixin i{background-position: -294px 0;}
+		
+		.signup-forms .inner_v2 .inner_v2_right {float: right;border-left: 1px solid #EBEBEB;width: 208px;padding-left: 20px;height: 300px;padding-top: 20px;}
+		.signup-forms .inner_v2 .inner_v2_right img {width: 180px;height: 180px;}
+		.signup-forms .inner_v2 .inner_v2_right p {font-size: 15px;color: #797979;line-height: 24px;margin-top: 20px;text-align: center;width: 180px;}
+		.bottom-link { width: 140px;margin: 10px auto;border-radius: 15px;background-color: rgba(0,0,0,.6) !important;text-align: center;font-size: 12px;color: #FFFFFF;padding: 4px 0;}
+		.bottom-link a {color: #FF9D00;margin-left: 6px;}
+		
+		.photoby {position: absolute;bottom: 10px;right: 10px;font-size: 12px;color: #FFFFFF;line-height: 2em;z-index: 3;}
+		.photoby a {color: #FFFFFF;}
+		
+		.fullscreen-bg {background-position: 50% 50%;background-size: cover;bottom: 0;right: 0;position: fixed;overflow: hidden;left: 0;top: 0;}
+		.fullscreen-bg img {width: 1920px;height: auto;margin-top: -66px;}
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="container">
+				<a href="" class="logo">马蜂窝</a>
+				<div class="signup-forms">
+					<div class="signup-box">
+						<div class="add-info">
+							<div class="hd">账户注册</div>
+								<form id="_j_signup_mobile_form">
+									<div class="form-field">
+										<input placeholder="您的名号"/>
+									</div>
+									<div class="form-field">
+										<input placeholder="您的密码"/>
+									</div>
+									<div class="form-field">
+										<input placeholder="确认密码"/>
+									</div>
+									<div class="form-field">
+										<div class="claerfix">
+											<a href="">免费获取验证码</a>
+											<input class="vcode_input" placeholder="确认密码"/>
+										</div>
+									</div>
+									<div class="submit-btn">
+										<button type="submit">完成注册</button>
+									</div>
+								</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="photoby">
+			< &nbsp;
+			<a href="">图片主题</a> &nbsp;>&nbsp;by&nbsp;
+			<a href="">作者名</a>
+		</div>
+		<div class="fullscreen-bg" style="background-image: url(pic/27.jpg);">
+			
+		</div>
+	</body>
+</html>

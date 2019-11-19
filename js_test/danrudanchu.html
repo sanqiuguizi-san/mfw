@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<button onclick="btnIn()">淡入</button>   <!-- //点击实现淡入功能 -->
+		<button onclick="btnOut()">淡出</button>   <!-- //点击实现淡出功能 -->
+		<div id="div1" style="width:80px;height:80px;background-color:green;opacity: 1;"></div>
+		<script type="text/javascript">
+			function fadeIn(element,speed){
+			    if(element.style.opacity !=1){
+			        var speed = speed || 30 ;
+			        var num = 0;
+			        var st = setInterval(function(){
+			        num++;
+			        element.style.opacity = num/10;
+			        if(num>=10)  {  clearInterval(st);  }
+			        },speed);
+			    }
+			}
+			
+			function fadeOut(element,speed){
+			    if(element.style.opacity !=0){
+			        var speed = speed || 30 ;
+			        var num = 10;
+			        var st = setInterval(function(){
+			        num--;
+			        element.style.opacity = num / 10 ;
+			        if(num<=0)  {   clearInterval(st);  }
+			        },speed);
+			    }
+			}
+			
+			function btnIn(){
+			    fadeIn(div1,30);
+			}
+			
+			function btnOut(){
+			    fadeOut(div1,30);
+			}
+		</script>
+		
+		<!-- 版权声明：本文为CSDN博主「Liushen01」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+		原文链接：https://blog.csdn.net/weixin_42052760/article/details/80231854 -->
+	</body>
+</html>

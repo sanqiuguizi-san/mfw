@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+			 text-align: center;
+			 }
+			 nav li{
+			 display: inline;
+			 width: 24%;
+			 text-decoration: none;
+			 padding: 15px;
+			 }
+			 li:hover{
+			  background-color: lightblue;
+			 }
+			 section{
+			  height: 300px;
+			}
+		</style>
+	</head>
+	<body>
+		<!--导航栏部分HTML代码-->
+		<nav id="nav">
+		 <ul>
+		 <li class="act">选卡1</li>
+		 <li>选卡2</li>
+		 <li>选卡3</li>
+		 <li>选卡4</li>
+		 </ul>
+		</nav>
+		<!--内容部分HTML代码-->
+		<div id="container">
+		 <section class="tab" style="background-color: tomato">内容1</section>
+		 <section class="tab" style="background-color: cyan">内容2</section>
+		 <section class="tab" style="background-color: blueviolet">内容3</section>
+		 <section class="tab" style="background-color: gold">内容4</section>
+		</div>
+		<script>
+		 window.onload=function b() {
+		 var nav=document.getElementById('_j_index_search_tab');
+		 var oNav=nav.getElementsByTagName('li');
+		 
+		 var container=document.getElementById('_j_index_search_bar');
+		 var oDiv=container.getElementsByClassName('search-input');
+		 for(var i=0;i<oNav.length;i++){
+		  oNav[i].index=i;
+		  oNav[i].onclick=function () {
+		  for(var i=0;i<oNav.length;i++){
+		   oNav[i].className='';
+		   oDiv[i].style.display="none";
+		  }
+		  this.className='tab-select';
+		 			//console.log(this);//this指向调用本函数的对象即点击到的选项卡oNav[i]整行<li>
+		  oDiv[this.index].style.display="block"
+		  }
+		 			//默认登入时第一个是act,其他是none(只执行一次)
+		  // for(var m=1;m<oNav.length;m++){
+		  //  oNav[m].className='';
+		  //  oDiv[m].style.display="none";
+		  // }
+		 }
+		 };
+		</script>
+	</body>
+</html>

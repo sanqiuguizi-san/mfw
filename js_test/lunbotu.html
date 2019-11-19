@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			* {
+			  margin: 0;
+			  padding: 0;
+			  list-style: none;
+			}   /* //清除默认y样式 */
+			
+			.box {
+			  position: relative;
+			  width: 600px;
+			  height: 370px;
+			  margin: 50px auto;
+			  overflow: hidden;
+			}     /* //给盒子宽高，然后给图片溢出隐藏 */
+			
+			.box #imgul {
+			  width: 600px;
+			  height: 370px;
+			}
+			
+			.box #imgul li {
+			  width: 600px;
+			  height: 370px;
+			}
+			
+			.box #imgul li img {
+			  width: 600px;
+			  height: 370px;
+			  display: block;
+			  float: left;
+			}
+			
+			.box span {
+			  position: absolute;
+			  top: 50%;
+			  margin-top: -30px;
+			  width: 30px;
+			  height: 60px;
+			  background-color: rgba(0, 0, 0, 0.6);
+			  color: #fff;
+			  font-size: 40px;
+			}
+			
+			.box #left {
+			  left: 0px;
+			}
+			
+			.box #right {
+			  right: 0px;
+			}
+			
+			.box ol {
+			  position: absolute;
+			  bottom: 20px;
+			  left: 30px;
+			}
+			
+			.box ol li {
+			  width: 20px;
+			  height: 20px;
+			  background: yellow;
+			  font-size: 15px;
+			  line-height: 20px;
+			  float: left;
+			  margin: 0px 3px;
+			  text-align: center;
+			}
+			
+			.box ol .active {
+			  background: #fff;
+			  color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class='box'>
+		  <ul id="imgul">                      <!-- //把图片按顺序放入盒子 -->
+		    <li><img style="background:  aqua;" src="./imgs/1.jpg" alt=""></li>
+		    <li><img style="background:  #A9A9A9;" src="./imgs/2.jpg" alt=""></li>
+		    <li><img style="background:  #ADD8E6;" src="./imgs/3.jpg" alt=""></li>
+		    <li><img style="background:  #FF0000;" src="./imgs/4.jpg" alt=""></li>
+		    <li><img style="background:  #FFFF00;" src="./imgs/5.jpg" alt=""></li>
+		  </ul>
+		  <span id="left">
+		    < </span> <span id="right"> >                 <!-- //左右俩边的小按钮 -->
+		  </span>    
+		  <ol>                                            <!-- //小按钮 -->
+		    <li class="active">1</li>
+		    <li>2</li>
+		    <li>3</li>
+		    <li>4</li>
+		    <li>5</li>
+		  </ol>
+		</div>
+		<script type="text/javascript">
+			function $(names) {
+			      return document.getElementById(names);
+			    }
+			    var left = $('left'); //左按钮 
+			    var right = $('right'); //右按钮
+			    var box = document.getElementsByClassName('box')[0];
+			    var li_list = document.querySelectorAll('#imgul li'); //获取图片的li
+			    console.log(li_list);
+					var ol_list = document.querySelectorAll('ol li');
+			    var timer = null; //声明定时器
+			    var count = 0;
+			
+			    function auto() { //执行自动轮播
+			      count++;
+			      if (count > li_list.length - 1) {
+			        count = 0;
+			      }
+			      for (var i = 0; i < li_list.length; i++) {
+			        li_list[i].style = 'display:none;';
+			        ol_list[i].className = '';
+			      }
+						//console.log(li_list[count]);
+						//因为浏览器打开后首先显示第一个li所以从li_list[1]开始轮播
+			      li_list[count].style = 'display:block;';
+			      ol_list[count].className = 'active';
+			
+			    }
+			    timer = setInterval(auto, 1000); //调用定时器每隔
+			
+			    // 点击右侧，切换下一个
+			    right.onclick = function () {
+			      auto();
+			    }
+			    // 点击左侧，切换上一个
+			    left.onclick = function () {
+			      count--;
+			      if (count < 0) {
+			        count = li_list.length - 1;
+			      }
+			      console.log(count);
+			      for (var i = 0; i < li_list.length; i++) {
+			        li_list[i].style = 'display:none;';
+			        ol_list[count].className = '';
+			      }
+			      li_list[count].style = 'display:block;';
+			      ol_list[count].className = 'active';
+			    }
+			
+			    box.onmouseover = function () { //鼠标划上去，停止轮播
+			      clearInterval(timer);
+						//console.log(1);
+			    }
+			    box.onmouseout = function () { //鼠标划出，继续轮播
+			      timer = setInterval(auto, 1000); //调用定时器
+			    }
+			
+			
+			    //点击小按钮，切换图片
+			    for (var j = 0; j < ol_list.length; j++) {
+			      ol_list[j].ind = j; //为每个小按钮添加下标
+			      ol_list[j].onclick = function () { //进入点击事件
+			        for (var i = 0; i < li_list.length; i++) { //干掉所有人
+			          li_list[i].style = 'display:none;';
+			          ol_list[i].className = '';
+			        }
+			        li_list[this.ind].style = 'display:block;'; //留下我自己
+			        ol_list[this.ind].className = 'active'; //留下我自己
+			        count = this.ind; // 把当前的角标值赋值给count 希望他从当前再开始
+			      }
+			    }
+		</script>
+	</body>
+</html>
